@@ -27,21 +27,37 @@ body{
     float: right;
   }
 
-    .page-header .student-search input{
+    /*.page-header .student-search input{
       border-radius: 5px;
       border: 1px solid #eaeaea;
       padding: 8px 15px;
       font-size: 14px;
-    }
+    }*/
+#search{
+  border-radius: 5px;
+      border: 1px solid #eaeaea;
+      padding: 8px 15px;
+      font-size: 14px;
+      margin:5px;
+}
+#search-button{
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #4ba6c3;
+  color: #fff;
+  margin:5px;
 
-    .page-header .student-search button{
+}
+   /* .page-header .student-search button{
       border-radius: 5px;
       border: 1px solid #eaeaea;
       padding: 8px 15px;
       font-size: 14px;
       background-color: #4ba6c3;
       color: #fff
-    }
+    }*/
 
 /*.student-list{} */
 

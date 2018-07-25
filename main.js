@@ -11,7 +11,7 @@ const dividePagesBy = 10;
 const paginate = Math.ceil(getListItems.length / dividePagesBy);
 
 //
-const getPages = () =>{
+/*const getPages = () =>{
     for (let i=0; i<getListItems.length; i+=dividePagesBy){
         pages.push(getListItems.slice(i, i+dividePagesBy));
         
@@ -22,7 +22,7 @@ const getPages = () =>{
    
 
 }
-getPages();
+getPages();*/
 //pagination
 //$(".pagination").append("<li><a href = 'javascript:void(0)'>1</a></li>");
 const displayPagination = () =>{
@@ -44,6 +44,13 @@ for(let i=pgNum; i<=((dividePagesBy*currentPage)-1); i++){
 }  
 }
 showPages(pgNum);
+
+// ===================================
+//          Event Listeners
+//====================================
+
+
+
 // add event listener on pagination div
 const listen = $(".pagination");
 listen[0].addEventListener("click", (event) => {
@@ -66,12 +73,12 @@ listen[0].addEventListener("click", (event) => {
 // controls pagination functionality:
 // 1) previous number 2) next numbers 3)previous symbol 4) next symbol
    if (calculatePage !== currentPage){
-       console.log("hi");
+       //console.log("hi");
        if(calculatePage < currentPage){
         pgNum = goToPage;
         currentPage=calculatePage;
-        console.log(pgNum);
-        console.log(currentPage);
+        //console.log(pgNum);
+        //console.log(currentPage);
         showPages(pgNum);
        } else if(calculatePage > currentPage){
         pgNum = goToPage;
@@ -81,15 +88,15 @@ listen[0].addEventListener("click", (event) => {
         //console.log(goToPage);
         showPages(pgNum);
         } else if( pgMove + currentPage < currentPage) {
-            console.log("waht");
-        currentPage=pgMove + currentPage;
+            //console.log("waht");
+        currentPage = pgMove + currentPage;
         pgNum = (currentPage * dividePagesBy) - dividePagesBy;
         //console.log(pgNum);
         //console.log(currentPage);
         showPages(pgNum);
         }else if( pgMove + currentPage > currentPage) {
-            console.log("waht");
-        currentPage=pgMove + currentPage;
+            //console.log("waht");
+        currentPage = pgMove + currentPage;
         pgNum = (currentPage * dividePagesBy) - dividePagesBy;
         //console.log(pgNum);
         //console.log(currentPage);
@@ -102,3 +109,23 @@ listen[0].addEventListener("click", (event) => {
 
 
 displayPagination();   
+
+
+// Event listener on Search Box
+const search = $("#search-button");
+search[0].addEventListener("click", (event) =>{
+    // event.preventDefault();
+    let match;
+    let searchTerm = document.getElementById("search").value.toLowerCase();
+    console.log(searchTerm);
+    getListItems.hide();
+    for (k=0; k<getListItems.length; k++){
+         let nameText = getListItems[k].getElementsByTagName("h3")[0].innerText.toLowerCase();
+         let email = getListItems[k].getElementsByTagName("span")[0].innerText.toLowerCase();
+         console.log(nameText);
+    if(nameText.indexOf(searchTerm) != -1 || email.indexOf(searchTerm) != -1){
+     getListItems[k].style.display="block";
+     
+    };
+    } 
+});     
