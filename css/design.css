@@ -33,6 +33,9 @@ body{
       padding: 8px 15px;
       font-size: 14px;
     }*/
+    .query{
+      display:block;
+    }
 #search{
   border-radius: 5px;
       border: 1px solid #eaeaea;
@@ -133,3 +136,10 @@ body{
       background-color: #4ba6c3;
       color: #fff;
     }
+    
+    input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
